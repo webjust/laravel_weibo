@@ -38,6 +38,9 @@ class UsersController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        // 闪存信息
+        session()->flash('success', '欢迎，您将开始一段新的旅程。');
+        
         // 跳转
         return redirect()->route('users.show', $user);
      }
